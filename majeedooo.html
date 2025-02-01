@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #013c5a;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+
+
+
+
+
+        /* تصميم الأقسام */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .text {
+            max-width: 500px;
+            padding: 10px;
+        }
+
+        .text h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .services-container,
+        .works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service,
+        .work {
+            margin: 20px;
+            width: 800px;
+        }
+
+        .service img,
+        .work img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .extra-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .extra-section .image,
+        .extra-section .text {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .extra-section .image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* التصميم التكيفي */
+        @media (max-width: 768px) {
+
+            .container,
+            .extra-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image img {
+                width: 80%;
+            }
+
+            .services-container,
+            .works-container {
+                flex-direction: column;
+            }
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            background: #222;
+            padding: 30px;
+            border-radius: 50px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            background: #013c5a;
+        }
+
+        .step img {
+            width: 90px;
+            margin-bottom: 50px;
+        }
+
+        .step h3 {
+            font-size: 21px;
+            color: #ffcc00;
+        }
+
+        .step p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* تصميم الحسابات الرسمية */
+        .accounts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .account-box {
+            background: #222;
+            padding: 30px;
+            width: 250px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .account-box img {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+
+        .account-box h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .account-box p {
+            font-size: 19px;
+            color: #ccc;
+        }
+
+        /* حدود منقطة */
+        .account-box:nth-child(1) {
+            border: 2px dashed #ffa500;
+        }
+
+        .account-box:nth-child(2) {
+            border: 2px dashed #00bfff;
+        }
+
+        /* تأثير عند تمرير الماوس */
+        .account-box:hover {
+            transform: scale(1.05);
+            border-color: #fff;
+        }
+
+        /* التصميم التكيفي */
+        @media (max-width: 768px) {
+            .accounts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+/* قسم الدورة */
+.course-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e2e, #282a36);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 80%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-out;
+}
+
+/* عند تمرير الماوس */
+.course-section:hover {
+    transform: scale(1.02);
+}
+
+/* النصوص */
+.course-content {
+    flex: 1;
+    text-align: right;
+    padding: 20px;
+}
+
+.course-content h2 {
+    color: #ffd700;
+    font-size: 26px;
+}
+
+.course-content p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* زر التسجيل */
+.cta-button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e68900;
+}
+
+/* صورة اللعبة */
+.course-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-out;
+}
+
+/* تأثير حركة خفيفة */
+.course-section:hover .course-image img {
+    transform: scale(1.05);
+}
+     /* تحسين المظهر على الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+    .course-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        width: 90%;
+    }
+
+    .course-content {
+        padding: 10px;
+    }
+
+    .course-image img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+/* تحسين المظهر على الأجهزة المتوسطة (التابلت) */
+@media (max-width: 1024px) {
+    .course-section {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .course-content h2 {
+        font-size: 22px;
+    }
+
+    .course-content p {
+        font-size: 16px;
+    }
+
+    .course-image img {
+        width: 250px;
+    }
+}  
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">من أنا</a></li>
+                <li><a href="#services">ماذا أقدم</a></li>
+                <li><a href="#works">أعمالي</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- قسم "من أنا" -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="image">
+                <img src="mmja.jpg" alt="صورة محمد مجيد">
+            </div>
+            <div class="text">
+                <h2>من أنا</h2>
+                <p>مرحباً! اسمي محمد مجيد. أنا مبرمج ومصمم شغوف بابتكار حلول تقنية تساعد في بناء أعمال مبدعة. أحب العمل
+                    في مجالات متعددة من البرمجة إلى التصميم، وأنا هنا لعرض أعمالي وتقديم خدماتي لك.</p>
+            </div>
+        </div>
+        <p> ______________________________________________________________________________________________________</p>
+        <!-- صورة إضافية بجانب نص -->
+        <div class="extra-section">
+            <div class="image">
+                <img src="ssj.jpg  " alt="صورة إضافية">
+            </div>
+            <div class=" text">
+
+
+
+
+            </div>
+    </section>
+    <p> ______________________________________________________________________________________________________</p>
+    <!-- قسم "ماذا أقدم" -->
+    <section id="services" class="section">
+        <h2>ماذا أقدم</h2>
+        <div class="services-container">
+            <div class="service">
+                <p>خدمة 1: تصميم وبرمجة مواقع إلكترونية حديثة وجميلة.</p>
+                <img src="">
+            </div>
+
+            <div class="service">
+                <p>خدمة 2: تطوير تطبيقات موبايل مبتكرة ومتوافقة مع الأجهزة المحمولة.</p>
+                <img src="" alt="خدمة 2">
+            </div>
+            <div class="service">
+                <p>خدمة 3: تصميم شعارات وهوية بصرية مميزة للأعمال.</p>
+                <img src="service-image3.jpg" alt="خدمة 3">
+            </div>
+        </div>
+        <p> ______________________________________________________________________________________________________</p>
+        <!-- صورة إضافية بجانب نص -->
+        <div class="extra-section">
+            <div class="image">
+                <img src=" pp.jpg " alt="صورة إضافية">
+            </div>
+            <div class="text">
+                <h2>لماذا تختارني؟</h2>
+                <p>أتميز بالتصميم الاحترافي والابتكار، وأسعى دائمًا لتحقيق رؤية العميل بأفضل شكل ممكن، مع التركيز على
+                    التفاصيل والجودة.</p>
+            </div>
+        </div>
+    </section>
+    <section class="course-section">
+        <div class="course-content">
+            <h2>تعلم تطوير الألعاب ثنائية الأبعاد</h2>
+            <p>انقل أفكارك إلى ألعاب منصات ثنائية الأبعاد باستخدام محرك Godot 4.</p>
+            <button class="cta-button">التسجيل في الدورة</button>
+        </div>
+        <div class="course-image">
+            <img src="ssj.jpg" alt="لعبة 2D">
+        </div>
+    </section>
+
+    
+    <p> ______________________________________________________________________________________________________</p>
+    <!-- قسم "أعمالي" -->
+    <section id="works" class="section">
+        <h2>أعمالي</h2>
+        <div class="works-container">
+            <div class="work">
+                <img src=" photo_٢٠٢٤-١٢-٠٤_١٦-٤٣-٥٣.jpg " alt="عمل 1">
+                <p>وصف العمل 1: مشروع تصميم موقع إلكتروني لمتجر خاص.</p>
+            </div>
+            <div class="work">
+                <img src="work2.jpg" alt="عمل 2">
+                <p>وصف العمل 2: تطبيق موبايل لإدارة المهام الشخصية.</p>
+            </div>
+            <div class="work">
+                <img src="work3.jpg" alt="عمل 3">
+                <p>وصف العمل 3: تصميم شعار لشركة تجارية ناشئة.</p>
+            </div>
+        </div>
+    </section>
+    <p> ______________________________________________________________________________________________________</p>
+
+
+    <!-- قسم "خطة سير المشروع" -->
+    <section id="project-plan" class="section">
+        <h2>خطة سير المشروع</h2>
+        <div class="steps">
+            <div class="step">
+                <img src="requirements-icon.png" alt="المتطلبات">
+                <h3>المتطلبات</h3>
+                <p>جمع الأفكار والمتطلبات لتحقيق الهدف وبناء صورة مبدئية والتوسع في تفاصيلها</p>
+            </div>
+            <div class="step">
+                <img src="design-icon.png" alt="تصميم">
+                <h3>تصميم</h3>
+                <p>تصاميم تجعلك ترى المشروع كما لو كان جاهزًا قبل البرمجة</p>
+            </div>
+            <div class="step">
+                <img src="coding-icon.png" alt="برمجة">
+                <h3>برمجة</h3>
+                <p>إتمام البرمجة وفقًا للمتطلبات من بناء قواعد البيانات والتطوير الأمني</p>
+            </div>
+            <div class="step">
+                <img src="testing-icon.png" alt="اختبار">
+                <h3>اختبار</h3>
+                <p>نقوم بإجراء اختبار شامل لضمان جودة الكود وتجربة المستخدم</p>
+            </div>
+            <div class="step">
+                <img src="8888.jpg" alt="التسليم">
+                <h3>التسليم</h3>
+                <p>يتم عرض الشكل النهائي للعميل ليتم فتح المشروع ونشره على الدوام</p>
+            </div>
+        </div>
+    </section>
+    <!-- قسم "الحسابات الرسمية" -->
+    <section id="accounts" class="section">
+        <h2>الحسابات الرسمية</h2>
+        <div class="accounts-container">
+            <div class="account-box">
+
+                <img src="ajwe2.png" alt="أجوبة 2">
+                <h3>أجوبة 2</h3>
+                <p>حساب رسمي للردود والمناقشات التقنية.</p>
+            </div>
+            <div class="account-box">
+
+                <img src=" mmja.jpg" alt="سوب">
+                <h3>سوب | سوب</h3>
+                <p>حساب إبداعي للنقاشات والمحتوى المميز.</p>
+
+            </div>
+        </div>
+    </section>
+    <p> _______________________________________________________________________________</p>
+    <footer>
+        <p>&copy; 2025 محمد مجيد. جميع الحقوق محفوظة.</p>
+    </footer>
+</body>
+
+</html>
