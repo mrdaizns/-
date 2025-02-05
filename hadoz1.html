@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حدوز</title>
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #013c5a;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+
+
+
+
+
+        /* تصميم الأقسام */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .text {
+            max-width: 500px;
+            padding: 10px;
+        }
+
+        .text h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .services-container,
+        .works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service,
+        .work {
+            margin: 20px;
+            width: 800px;
+        }
+
+        .service img,
+        .work img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .extra-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .extra-section .image,
+        .extra-section .text {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .extra-section .image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* التصميم التكيفي */
+        @media (max-width: 768px) {
+
+            .container,
+            .extra-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image img {
+                width: 80%;
+            }
+
+            .services-container,
+            .works-container {
+                flex-direction: column;
+            }
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            background: #222;
+            padding: 30px;
+            border-radius: 50px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            background: #013c5a;
+        }
+
+        .step img {
+            width: 90px;
+            margin-bottom: 50px;
+        }
+
+        .step h3 {
+            font-size: 21px;
+            color: #ffcc00;
+        }
+
+        .step p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* تصميم الحسابات الرسمية */
+        .accounts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .account-box {
+            background: #222;
+            padding: 30px;
+            width: 250px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .account-box img {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+
+        .account-box h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .account-box p {
+            font-size: 19px;
+            color: #ccc;
+        }
+
+        /* حدود منقطة */
+        .account-box:nth-child(1) {
+            border: 2px dashed #ffa500;
+        }
+
+        .account-box:nth-child(2) {
+            border: 2px dashed #00bfff;
+        }
+
+        /* تأثير عند تمرير الماوس */
+        .account-box:hover {
+            transform: scale(1.05);
+            border-color: #fff;
+        }
+
+        /* التصميم التكيفي */
+        @media (max-width: 768px) {
+            .accounts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+/* قسم الدورة */
+.course-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e2e, #282a36);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 80%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-out;
+}
+
+
+ /* زر "التسجيل في الدورة" */
+ .cta-button {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+
+
+
+/* عند تمرير الماوس */
+.course-section:hover {
+    transform: scale(1.02);
+}
+
+/* النصوص */
+.course-content {
+    flex: 1;
+    text-align: right;
+    padding: 20px;
+}
+
+.course-content h2 {
+    color: #ffd700;
+    font-size: 26px;
+}
+
+.course-content p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* زر التسجيل */
+.cta-button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e68900;
+}
+
+/* صورة اللعبة */
+.course-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-out;
+}
+
+/* تأثير حركة خفيفة */
+.course-section:hover .course-image img {
+    transform: scale(1.05);
+}
+     /* تحسين المظهر على الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+    .course-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        width: 90%;
+    }
+
+    .course-content {
+        padding: 10px;
+    }
+
+    .course-image img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+/* تحسين المظهر على الأجهزة المتوسطة (التابلت) */
+@media (max-width: 1024px) {
+    .course-section {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .course-content h2 {
+        font-size: 22px;
+    }
+
+    .course-content p {
+        font-size: 16px;
+    }
+
+    .course-image img {
+        width: 250px;
+    }
+}            
+        /* منيو برغر */
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        nav {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background: #013c5a;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+   
+    </style>
+</head>
+
+
+    
+    <!-- قسم "من أنا" -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="image">
+                <img src="iamges/h1.jpg" alt="صورة محمد مجيد">
+            </div>
+            <div class="text">
+                <h2> من حدوز</h2>
+                <p> حدوز  </p>
+            </div>
+        </div>
+        <p> ______________________________________________________________________________________________________</p>
+        <!-- صورة إضافية بجانب نص -->
+        
+    <p> ______________________________________________________________________________________________________</p>
+    <section class="course-section">
+        <div class="course-content">
+            <h2> متجر حدوز</h2>
+            <p> وصف متجر حدوز </p>
+            <a href="iamges/h3.jpg" target="_blank" class="cta-button">حساب متجري</a>
+        </div>
+        <div class="course-image">
+            <img src="iamges/h4.jpg" alt="لعبة 2D">
+    
+        </div>
+    </section>
+
+<!-- صورة إضافية بجانب نص -->
+
+ <div class="extra-section">
+    <div class="image">
+        <img src="iamges/h3.jpg" alt="صورة إضافية">
+    </div>
+    <div class="text">
+        <h2>  </h2>
+        <p>   </p>
+    </div>
+    
+        </div>
+</section>
+
+    <p>________________________________________________________________________________________________________</p>
+    <section class="course-section">
+        <div class="course-content">
+            <h2>نص حدوز </h2>
+            <p>نص حدوز </p>
+           
+        </div>
+        <div class="course-image">
+            
+        <img src="iamges/h5.jpg" alt="لعبة 2D">
+        </div>
+    </section>
+        <p> ______________________________________________________________________________________________________</p>
+        
+    </section>
+    <section class="course-section">
+        <div class="course-content">
+            <h2>م </h2>
+            <p>  </p>
+            
+        </div>
+        <div class="course-image">
+            <img src="iamges/h6.jpg" alt="لعبة 2D">
+        </div>
+    </section>
+    
+    
+    <p> ______________________________________________________________________________________________________</p>
+    <div class="extra-section">
+        <div class="image">
+            <img src="iamges/h3.jpg" alt="صورة إضافية">
+        </div>
+        <div class="text">
+            <h2> نص حدوز </h2>
+            <p>  نص حدوز </p>
+        </div>
+        
+            </div>
+    </section>
+    
+    <p> ______________________________________________________________________________________________________</p>
+
+
+    <!-- قسم "خطة سير المشروع" -->
+    <section id="project-plan" class="section">
+        <h2>    </h2>
+        <div class="steps">
+            <div class="step">
+                <img src="requirements-icon.png" alt="">
+                <h3></h3>
+                <p>   </p>
+            </div>
+            <div class="step">
+                <img src="design-icon.png" alt="">
+                <h3>  </h3>
+                <p>   </p>
+            </div>
+            <div class="step">
+                <img src="   " alt="  ">
+                <h>  </h>
+                <p>   </p>
+            </div>
+           
+            <div class="step">
+                <img src="     " alt="">
+                <h3> </h3>
+                <p>   </p>
+            </div>
+        </div>
+    </section>
+    <!-- قسم "الحسابات الرسمية" -->
+    
+
+    <section id="accounts" class="section">
+        <h2>تواصل معي</h2>
+        <div class="accounts-container">
+            <a href="  " target="_blank" class="account-box">
+                <img src="images/3.jpg" alt=" ">
+            <h2>     </h2>
+            <p>  </p>
+            </a>
+
+            
+        </div>
+    </section>
+
+    <p> _______________________________________________________________________________</p>
+    
+    <footer>
+        <p>&copy; </p>
+    </footer>
+</body>
+
+</html>
